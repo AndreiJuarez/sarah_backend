@@ -7,6 +7,9 @@ export type UsersDocument = Users & Document;
 
 export class Users {
     @Prop()
+    name: string;
+    
+    @Prop()
     email: string;
 
     @Prop()

@@ -5,4 +5,13 @@ import { LoginAuthDto } from './login-auth.dto';
 export class RegisterAuthDto extends PartialType(LoginAuthDto) {
     @IsNotEmpty()
     name: string
+
+    @IsNotEmpty()
+    email:string;
+
+    @IsNotEmpty()
+    password:string;
+
+    @IsNotEmpty()
+    invcode:string;
 }

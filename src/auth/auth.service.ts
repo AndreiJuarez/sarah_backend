@@ -17,13 +17,14 @@ export class AuthService {
   async register(userObject:RegisterAuthDto){
     const {password} = userObject
     const plainToHash = await hash(password, 10)
+    // console.log(plainToHash)
     userObject = {...userObject, password: plainToHash}
     return this.usersModel.create(userObject)
   }
 
   async login(userObjectLogin: LoginAuthDto){
-    const {email, password} = userObjectLogin
-    const findUser = await this.usersModel.findOne({email: email})
+    const {name, password} = userObjectLogin
+    const findUser = await this.usersModel.findOne({name: name})
     if(!findUser) throw new HttpException('USER_NOT_FOUND', 404);
     
     const verifyPassword = await compare(password, findUser.password)

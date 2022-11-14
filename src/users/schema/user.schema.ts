@@ -14,6 +14,9 @@ export class Users {
 
     @Prop()
     password: string;
+
+    @Prop()
+    invcode: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(Users)
